@@ -3,7 +3,7 @@
 @Autor: Adrian Fulladolsa
         Sebastián José Solorzano Pérez
 @Version: 1.0
-Última modificación: 27/01/2022
+Última modificación: 30/01/2022
 
 Programa que tendra los metodos y las propiedades de la clase modelo.
 ***************************************************************************/
@@ -93,7 +93,7 @@ public class Modelo implements Radio
     }
 
     @Override
-    public String guardarEmisoraActual()
+    public String guardarEmisoraActual(int numBoton)
     {
 		setNumEmisora(EmisoraRadio);
         EmisorasGuardadas.add(NumEmisora);
@@ -103,7 +103,7 @@ public class Modelo implements Radio
     }
 
     @Override
-    public String seleccionarEmisora(int i)
+    public String seleccionarEmisoraGuardada(int i)
     {
 		if(i != 0){
 			setEmisoraRadio(Float.parseFloat(EmisorasGuardadas.get((i-1))));
@@ -146,7 +146,7 @@ public class Modelo implements Radio
     }
 
     @Override
-    public void SubirEmisora()
+    public void subirEmisora()
     {
 		if(TipoSenal == true){
 			EmisoraRadio = EmisoraRadio + 10f;
@@ -170,7 +170,7 @@ public class Modelo implements Radio
     }
 
     @Override
-    public void BajarEmisora()
+    public void bajarEmisora()
     {
         if(TipoSenal == true){
 			EmisoraRadio = EmisoraRadio - 10f;

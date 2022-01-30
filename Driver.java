@@ -3,7 +3,7 @@
 @Autor: Adrian Fulladolsa
         Sebastián José Solorzano Pérez
 @Version: 1.0
-Última modificación: 27/01/2022
+Última modificación: 30/01/2022
 
 Driver program que servira como controlador e implementa el menú 
 de opciones para simulador de radio. 
@@ -51,13 +51,13 @@ public class Driver
 					else if (opcion == 4)
 					{
 						//Subir Emisora
-						modelo.SubirEmisora();
+						modelo.subirEmisora();
 					}
 
 					else if (opcion == 5)
 					{
 						//Bajar Emisora
-						modelo.BajarEmisora();
+						modelo.bajarEmisora();
 					}
 					
 					else if (opcion == 6)
@@ -69,13 +69,13 @@ public class Driver
 					else if (opcion == 7)
 					{
 						//Emisoras Guardadas
-						vista.mostrar(modelo.guardarEmisoraActual()); 
+						vista.mostrar(modelo.guardarEmisoraActual(1)); 
 					}
 
 					else if (opcion == 8)
 					{
 						//Emisoras Guardadas
-						vista.mostrar(modelo.seleccionarEmisora(vista.seleccionarEstacion(modelo.getEmisorasGuardadas()))); 
+						vista.mostrar(modelo.seleccionarEmisoraGuardada(vista.seleccionarEstacion(modelo.getEmisorasGuardadas()))); 
 					}
 
 					else if (opcion == 9)
