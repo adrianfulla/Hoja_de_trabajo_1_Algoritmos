@@ -3,7 +3,7 @@
 @Autor: Adrian Fulladolsa
         Sebastián José Solorzano Pérez
 @Version: 1.0
-Última modificación: 27/01/2022
+Última modificación: 30/1/2022
 
 Programa que mostrará a los usuarios el menú de opciones para un
 simulador de radio.
