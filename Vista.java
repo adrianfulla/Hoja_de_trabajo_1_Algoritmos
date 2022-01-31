@@ -25,11 +25,20 @@ public class Vista
 		scan = new Scanner(System.in);
 	}
 	
+	/**
+     * Metodo que le da la bienvenida al usaurio
+     * 
+     */
 	public void bienvenida()
 	{
 		System.out.println("\nBienvendi@ al simulador de radio");
 	}
 	
+	/**
+     * Metodo que le muestra al usuario las opciones de menu cuando radio se encuentra encendido
+     * 
+	 * @int de la opcion del menu escogida por el usuario
+     */
 	public int MenuOpcionesOn()
 	{
 		int op = 0;
@@ -60,6 +69,11 @@ public class Vista
 		return op;
 	}
 	
+	/**
+     * Metodo que le muestra al usuario las opciones de menu cuando radio se encuentra apagado
+     * 
+	 * @int de la opcion del menu escogida por el usuario
+     */
 	public int MenuOpcionesOff()
 	{
 		int op = 0;
@@ -85,17 +99,29 @@ public class Vista
 		return op;
 	}
 	
-	
+	/**
+     * Metodo cuando el usuario escoge una opcion invalida
+     * 
+     */
 	public void opcionInvalida()
 	{
 		System.out.println("\nHa elegido una opcin invalida.\n");
 	}
 
+	/**
+     * Metodo que le da la despedida al usuario
+     * 
+     */
     public void despedida()
 	{
 		System.out.println("\nAdios, que tenga feliz dia!\n");
 	}
 	
+	/**
+     * Metodo que muestra el estado del radio
+     * 
+     * @param boolean que representa el estado del radio.
+     */
 	public void mostrarEstado(boolean n){
 		if (n == true){
 			System.out.println("La radio se encuentra encendida");
@@ -104,9 +130,21 @@ public class Vista
 			System.out.println("La radio se encuentra apagada");
 		}
 	}
+	/**
+     * Metodo que muestra al usuario un mensaje
+     * 
+     * @param String que sera mostrado al usuario
+     */
 	public void mostrar(String s){
 		System.out.println(s);
 	}
+	
+	/**
+     * Metodo que permite que el usuario seleccione una estacion
+     * 
+     * @param ArrayList de Strings donde se encuentras las estaciones guardadas
+	 * @return Integer que representa el lugar en la lista de la estacion guardada, se suma 1 a la opcion como una verificación 
+     */
 	public Integer seleccionarEstacion(ArrayList<String> ests){
 		System.out.println("Que estacion guardada desea seleccionar?");
 		if(ests.size() > 0){
@@ -135,7 +173,12 @@ public class Vista
 			return 0;
 		}
 	}
-	
+
+	/**
+     * Metodo que permite que el usuario escoger que tipo de señal desea escuchar
+     * 
+	 * @return boolean que representa el tipo de señal escogido por el usuario
+     */
 	public boolean seleccionarTipoSenal(){
 		System.out.println("Que tipo de senal desea escuchar?");
 		System.out.println("1. AM");
@@ -165,6 +208,12 @@ public class Vista
 		
 		
 	}
+	
+	/**
+     * Metodo que le muestra al usuario el tipo de señal del radio
+     * 
+	 * @param boolean que representa el tipo de señal 
+     */
 	public void mostrarTipoSenal(boolean b){
 		if(b == true){
 			System.out.println("Actualmente la señal es AM");
@@ -173,6 +222,12 @@ public class Vista
 			System.out.println("Actualmente la señal es FM");
 		}
 	}
+	
+	/**
+     * Metodo que le muestra al usuario la estacion que esta siendo mostrada por el radio
+     * 
+	 * @param float que representa la estacion en la que se encuentra el radio
+     */
 	public void mostrarEstacionActual(float f){
 		System.out.println("La estacion actual es " + Float.toString(f));
 	}

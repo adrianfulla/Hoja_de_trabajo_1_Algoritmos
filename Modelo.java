@@ -37,12 +37,22 @@ public class Modelo implements Radio
         NumEmisora = null;
         emisoraRadio = 530f;
     }
-
+	
+	/**
+     * Setter de la clase NumEmisora
+     * 
+     * @param float representativo de la Emisora
+     */
     public void setNumEmisora(float f)
     {
         this.NumEmisora = Float.toString(f);
     }
 
+	/**
+     * Setter de la clase emisoraRadio
+     * 
+     * @param float representativo de la Emisora
+     */
     public void setEmisoraRadio(float f)
     {
         this.emisoraRadio = f;
@@ -54,6 +64,10 @@ public class Modelo implements Radio
 		}
     }
 
+	/**
+     * Metodo que enciende o apaga el programa
+     * 
+     */
     @Override
     public void encenderApagar()
     {
@@ -92,6 +106,12 @@ public class Modelo implements Radio
         }
     }
 
+	/**
+     * Metodo que guarda la Emisora Actual
+     * 
+     * @param int representativo del boton
+	 * @return String que indica que se ha guardado la emisora
+     */
     @Override
     public String guardarEmisoraActual(int numBoton)
     {
@@ -102,6 +122,12 @@ public class Modelo implements Radio
 		return m;
     }
 
+	/**
+     * Metodo que permite que el usuario escoga una emisora guardada
+     * 
+     * @param int representativo del indice de la emisora guardada
+	 * @return String que indica la emisora que ha sido escogida
+     */
     @Override
     public String seleccionarEmisoraGuardada(int i)
     {
@@ -117,7 +143,13 @@ public class Modelo implements Radio
 		}
 		return ("No se ha podido seleccionar ninguna estacion");
 	}
-
+	
+	/**
+     * Metodo que cambia el tipo de señal 
+     * 
+     * @param boolean que identifica si se cambia a AM o a FM siendo AM true y FM false
+	 * @return String que indica que se cambiado el tipo de señal
+     */
     @Override
     public String cambiarSenal(boolean b)
     {
@@ -139,12 +171,22 @@ public class Modelo implements Radio
 		return est;
     }
 
+	/**
+     * Getter del tipo de señal 
+     * 
+	 * @return boolean representativo del tipo de señal, true si es AM y false si es FM
+     */
     @Override
     public boolean getTipoSenal()
     {
         return tipoSenal;
     }
 
+	/**
+     * Metodo que aumenta la frecuencia de la radio, si llega al maximo de frecuencias permitido 
+     * para el tipo de señal se procede a cambiar al minimo de frecuencias 
+	 *
+     */
     @Override
     public void subirEmisora()
     {
@@ -168,7 +210,11 @@ public class Modelo implements Radio
 			System.out.println("Se ha causado un error");
 		}
     }
-
+	/**
+     * Metodo que disminuye la frecuencia de la radio, si llega al minimo de frecuencias permitido 
+     * para el tipo de señal se procede a cambiar al maximo de frecuencias 
+	 *
+     */	
     @Override
     public void bajarEmisora()
     {
@@ -192,19 +238,34 @@ public class Modelo implements Radio
 			System.out.println("Se ha causado un error");
 		}
     }
-
+	
+	/**
+     * Getter de la emisora actual
+     * 
+	 * @return float representativo de la emisora
+     */
     @Override
     public float getEmisoraActual()
     {
         return emisoraRadio;
     }
 
+	/**
+     * Metodo que comprueba si el radio se encuentra apagado o encendido
+     * 
+	 * @return boolean que reprenta si el radio se encuentra apagado si es false y encendido si es true
+     */
     @Override
     public boolean comprobarEncendida()
     {
         return encendido;
     }
 	
+	/**
+     * Getter de las emisoras guardadas
+     * 
+	 * @return ArrayList de String de las emisoras que han sido guardadas
+     */
 	public ArrayList<String> getEmisorasGuardadas(){
 		return emisorasGuardadas;
 	}
