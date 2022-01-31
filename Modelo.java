@@ -14,14 +14,14 @@ import java.util.ArrayList;
 public class Modelo implements Radio
 {
     //Propiedades
-    public boolean Encendido;
-    public boolean TipoSenal;
+    public boolean encendido;
+    public boolean tipoSenal;
     public float AMactual;
     public float FMactual;
     public int NumBoton;
     public String NumEmisora;
-    public float EmisoraRadio;
-    ArrayList<String> EmisorasGuardadas = new ArrayList<String>();
+    public float emisoraRadio;
+    ArrayList<String> emisorasGuardadas = new ArrayList<String>();
     Scanner scan = new Scanner(System.in);
     
     //Métodos
@@ -29,13 +29,13 @@ public class Modelo implements Radio
     //Constructor
     public Modelo()
     {
-        Encendido = false;
-        TipoSenal = true;
+        encendido = false;
+        tipoSenal = true;
         AMactual = 530f;
         FMactual = 87.9f;
         NumBoton = 1;
         NumEmisora = null;
-        EmisoraRadio = 530f;
+        emisoraRadio = 530f;
     }
 
     public void setNumEmisora(float f)
@@ -45,8 +45,8 @@ public class Modelo implements Radio
 
     public void setEmisoraRadio(float f)
     {
-        this.EmisoraRadio = f;
-		if(TipoSenal == true){
+        this.emisoraRadio = f;
+		if(tipoSenal == true){
 			this.AMactual = f;
 		}
 		else{
@@ -57,33 +57,33 @@ public class Modelo implements Radio
     @Override
     public void encenderApagar()
     {
-        if(Encendido == false)
+        if(encendido == false)
         {
             System.out.println("¿Deseas encender la radio?\n 1. Si\n2. No");
             int opcion = scan.nextInt();
             if(opcion == 1)
             {
                 System.out.println("Se ha encendido la radio");
-                Encendido = true;
+                encendido = true;
             }
             else if (opcion == 2)
             {
                 System.out.println("No se ha encendido la radio");
-                Encendido = false;
+                encendido = false;
             }
             else
             {
                 System.out.println("Error, intentalo de nuevo");
             }   
         }
-        else if(Encendido == true)
+        else if(encendido == true)
         {
             System.out.println("¿Deseas apagar la radio?\n1. Si\n2. No");
             int opcion2 = scan.nextInt();
             if(opcion2 == 1)
             {
                 System.out.println("Se ha apagado la radio");
-                Encendido = false;
+                encendido = false;
             }
             else if(opcion2 == 2)
             {
@@ -95,8 +95,8 @@ public class Modelo implements Radio
     @Override
     public String guardarEmisoraActual(int numBoton)
     {
-		setNumEmisora(EmisoraRadio);
-        EmisorasGuardadas.add(NumEmisora);
+		setNumEmisora(emisoraRadio);
+        emisorasGuardadas.add(NumEmisora);
 		
 		String m = ("Se ha guardado la emisora " + NumEmisora);
 		return m;
@@ -106,14 +106,14 @@ public class Modelo implements Radio
     public String seleccionarEmisoraGuardada(int i)
     {
 		if(i != 0){
-			setEmisoraRadio(Float.parseFloat(EmisorasGuardadas.get((i-1))));
-			if(EmisoraRadio <=107.9f){
-				TipoSenal = false;
+			setEmisoraRadio(Float.parseFloat(emisorasGuardadas.get((i-1))));
+			if(emisoraRadio <=107.9f){
+				tipoSenal = false;
 			}
 			else{
-				TipoSenal = true;
+				tipoSenal = true;
 			}
-			return ("Emisoras seleccionada: "+ Float.toString(EmisoraRadio));
+			return ("Emisoras seleccionada: "+ Float.toString(emisoraRadio));
 		}
 		return ("No se ha podido seleccionar ninguna estacion");
 	}
@@ -125,15 +125,15 @@ public class Modelo implements Radio
         boolean option = b;
         if(option == true)
         {
-            TipoSenal = true;
-            EmisoraRadio = AMactual;
+            tipoSenal = true;
+            emisoraRadio = AMactual;
 			est = ("Cambiaste a AM, Frecuencias: 530 a 1610");
 			
         }
         else if(option == false)
         {
-            TipoSenal = false;
-            EmisoraRadio = FMactual;
+            tipoSenal = false;
+            emisoraRadio = FMactual;
 			est = ("Cambiaste a FM, Frecuencias: 87.9 a 107.9");
         }
 		return est;
@@ -142,27 +142,27 @@ public class Modelo implements Radio
     @Override
     public boolean getTipoSenal()
     {
-        return TipoSenal;
+        return tipoSenal;
     }
 
     @Override
     public void subirEmisora()
     {
-		if(TipoSenal == true){
-			EmisoraRadio = EmisoraRadio + 10f;
-			setEmisoraRadio(EmisoraRadio);
-			if(EmisoraRadio > 1610f) {
+		if(tipoSenal == true){
+			emisoraRadio = emisoraRadio + 10f;
+			setEmisoraRadio(emisoraRadio);
+			if(emisoraRadio > 1610f) {
 				 setEmisoraRadio(530f);
 			}
-			System.out.println("Esta escuchando la emisora: " + Float.toString(EmisoraRadio));
+			System.out.println("Esta escuchando la emisora: " + Float.toString(emisoraRadio));
 		}
-		else if(TipoSenal == false){
-			EmisoraRadio = EmisoraRadio + 0.5f;
-			setEmisoraRadio(EmisoraRadio);
-			if(EmisoraRadio > 107.9f) {
+		else if(tipoSenal == false){
+			emisoraRadio = emisoraRadio + 0.5f;
+			setEmisoraRadio(emisoraRadio);
+			if(emisoraRadio > 107.9f) {
 				 setEmisoraRadio(87.9f);
 			}
-			System.out.println("Esta escuchando la emisora: " + Float.toString(EmisoraRadio));
+			System.out.println("Esta escuchando la emisora: " + Float.toString(emisoraRadio));
 		}
 		else{
 			System.out.println("Se ha causado un error");
@@ -172,21 +172,21 @@ public class Modelo implements Radio
     @Override
     public void bajarEmisora()
     {
-        if(TipoSenal == true){
-			EmisoraRadio = EmisoraRadio - 10f;
-			setEmisoraRadio(EmisoraRadio);
-			if(EmisoraRadio < 530f) {
+        if(tipoSenal == true){
+			emisoraRadio = emisoraRadio - 10f;
+			setEmisoraRadio(emisoraRadio);
+			if(emisoraRadio < 530f) {
 				 setEmisoraRadio(1610f);
 			}
-			System.out.println("Esta escuchando la emisora: " + Float.toString(EmisoraRadio));
+			System.out.println("Esta escuchando la emisora: " + Float.toString(emisoraRadio));
 		}
-		else if(TipoSenal == false){
-			EmisoraRadio = EmisoraRadio - 0.5f;
-			setEmisoraRadio(EmisoraRadio);
-			if(EmisoraRadio < 87.9f) {
+		else if(tipoSenal == false){
+			emisoraRadio = emisoraRadio - 0.5f;
+			setEmisoraRadio(emisoraRadio);
+			if(emisoraRadio < 87.9f) {
 				 setEmisoraRadio(107.9f);
 			}
-			System.out.println("Esta escuchando la emisora: " + Float.toString(EmisoraRadio));
+			System.out.println("Esta escuchando la emisora: " + Float.toString(emisoraRadio));
 		}
 		else{
 			System.out.println("Se ha causado un error");
@@ -196,16 +196,16 @@ public class Modelo implements Radio
     @Override
     public float getEmisoraActual()
     {
-        return EmisoraRadio;
+        return emisoraRadio;
     }
 
     @Override
     public boolean comprobarEncendida()
     {
-        return Encendido;
+        return encendido;
     }
 	
 	public ArrayList<String> getEmisorasGuardadas(){
-		return EmisorasGuardadas;
+		return emisorasGuardadas;
 	}
 }
